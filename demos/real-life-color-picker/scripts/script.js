@@ -13,7 +13,7 @@ var options = {
 };
 
 if (navigator.getUserMedia){
-	navigator.getUserMedia(options, v_success);
+	navigator.getUserMedia(options, v_success, v_error);
 } else{
 	not_supported();
 }
@@ -85,12 +85,11 @@ function otherColors(pixels, pixelCount) {
 	var colors = document.querySelector("#colors");
 	var colorlist = document.querySelector("#colorlist");
 	
-	for (var i=0; i<=newPalette.length; i++){
+	for (var i=0, l = newPalette.length; i<l; i++){
 		var theli = document.createElement('li');
 		var thediv = document.createElement('div');
 		thediv.className = 'othercolors';
-		thediv.setAttribute('style', "background-color:rgba("+newPalette[i][0]+","+newPalette[i][1]+","+newPalette[i][2]+", 1.0) !important;");
-		
+		thediv.setAttribute('style', "background-color:rgba("+newPalette[i][0]+","+newPalette[i][1]+","+newPalette[i][2]+", 1.0);");
 		
 		theli.appendChild(thediv);
 		theli.innerHTML += " rgb("+newPalette[i][0]+","+newPalette[i][1]+","+newPalette[i][2]+")";
